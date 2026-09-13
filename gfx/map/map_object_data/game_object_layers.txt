@@ -14,16 +14,22 @@
 # castle, city and temple on the map) leave on step 10, where the realm colour
 # overlay starts filling: AGOT's 16 keeps thousands of meshes alive over an
 # area that has long turned into a painted political map, and it costs frame
-# rate exactly there. The few special buildings and the roads stay on 16.
+# rate exactly there. AGOT's own building layer (Braavos, Gulltown, Lannisport,
+# Tyrosh, Oldtown, White Harbor, Pyke, the Wall's castles) and its road and
+# bridge layers go on the same step, so no town outlives the colour fill.
+#
+# AGOT's skybox mesh sits on AGOT_building_layer too; it moves to a layer of
+# its own here (skyx_skybox.txt) so that it keeps AGOT's step 16.
 #
 #   layer                 AGOT  here   camera height (AGOT ZOOM_STEPS)
 #   activities_layer         9     7   210
 #   AGOT_animal_layer        9     8   250
-#   AGOT_building_layer     16    16   793
-#   AGOT_low_roads          16    16
-#   AGOT_roads              16    16
+#   AGOT_building_layer     16    10   355
+#   AGOT_low_roads          16    10   355
+#   AGOT_roads              16    10   355
 #   building_layer          16    10   355
 #   unit_layer               9    10   355
+#   AGOT_skybox_layer        -    16   793   (new, the skybox only)
 
 layer={
 	name="activities_layer"
@@ -44,7 +50,7 @@ layer={
 layer={
 	name="AGOT_building_layer"
 	fade_in=0
-	fade_out=16
+	fade_out=10
 	category=""
 	masks=""
 	visibility_tags=""
@@ -52,7 +58,7 @@ layer={
 layer={
 	name="AGOT_low_roads"
 	fade_in=0
-	fade_out=16
+	fade_out=10
 	category=""
 	masks=""
 	visibility_tags=""
@@ -60,7 +66,7 @@ layer={
 layer={
 	name="AGOT_roads"
 	fade_in=0
-	fade_out=16
+	fade_out=10
 	category=""
 	masks=""
 	visibility_tags=""
@@ -77,6 +83,14 @@ layer={
 	name="unit_layer"
 	fade_in=0
 	fade_out=10
+	category=""
+	masks=""
+	visibility_tags=""
+}
+layer={
+	name="AGOT_skybox_layer"
+	fade_in=0
+	fade_out=16
 	category=""
 	masks=""
 	visibility_tags=""

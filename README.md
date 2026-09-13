@@ -49,7 +49,8 @@ later.
 
 | file | what |
 | --- | --- |
-| `gfx/map/map_object_data/game_object_layers.txt` | AGOT's seven layers; `activities_layer` 9 → 7, `AGOT_animal_layer` 9 → 8, `unit_layer` 9 → 10, `building_layer` 16 → 10; the special buildings and the two road layers stay on 16 |
+| `gfx/map/map_object_data/game_object_layers.txt` | AGOT's seven layers; `activities_layer` 9 → 7, `AGOT_animal_layer` 9 → 8, `unit_layer` 9 → 10, `building_layer`, `AGOT_building_layer`, `AGOT_roads`, `AGOT_low_roads` 16 → 10; plus a new `AGOT_skybox_layer` on 16 |
+| `gfx/map/map_object_data/skyx_skybox.txt` | AGOT's file with the skybox moved to `AGOT_skybox_layer`, so it keeps AGOT's step 16 while the building layer it used to share goes on 10 |
 | `gfx/map/map_object_data/effect_layers.txt` | coast foam 9 → 7, mountain env effects 9 → 8 (the base mod uses 6 and 7; AGOT's camera is lower at the same step, so the same heights are one step later) |
 | `common/defines/graphic/zz_smooth_zoom_agot.txt` | `LARGE_NAMES_ZOOM_STEP` back to AGOT's 12 |
 | `common/defines/graphic/zz_smooth_zoom_agot_ultrawide.txt.off` | opt-in, see below |
@@ -69,7 +70,7 @@ On AGOT's camera, the zoom steps the patch uses:
 | step | 6 | 7 | 8 | 9 | 10 | 12 | 16 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | camera height | 179 | 210 | 250 | 300 | 355 | 468 | 793 |
-| unloads / switches | grass | activities, coast foam | animals, mountain and other env effects | `tree_low`, `tree_medium` | holdings, armies, colour overlay starts, fort and raid icons, AGOT's fog of war fade | large map names | roads, special buildings, `tree_high` |
+| unloads / switches | grass | activities, coast foam | animals, mountain and other env effects | `tree_low`, `tree_medium` | holdings, AGOT's cities, roads and bridges, armies, colour overlay starts, fort and raid icons, AGOT's fog of war fade | large map names | skybox, `tree_high` |
 
 ### Why the holdings leave on step 10
 
@@ -78,9 +79,20 @@ been fully opaque since step 15 and the map reads as a painted political map. Ev
 city and temple on the screen is still a mesh instance at that height, over an area many
 times what vanilla ever draws holdings on, and that is where a 4 GB laptop GPU dropped from
 60 to 17 FPS on the AGOT map. Step 10 is where the overlay starts filling (the base mod
-moves it there from 9), so the models go as the colours come. The 64 special buildings and
-the road objects are few and stay on AGOT's 16; `fade_out` is one number per layer in
-`game_object_layers.txt` if you want them back longer.
+moves it there from 9), so the models go as the colours come.
+
+AGOT's hand placed cities are not holdings: Braavos, Gulltown, Lannisport, Tyrosh,
+Oldtown, White Harbor, Pentos, Pyke and the Wall's castles are map objects on AGOT's own
+`AGOT_building_layer`, and the bridges and Valyrian roads on `AGOT_roads` /
+`AGOT_low_roads`. Those go on step 10 as well, so no town outlives the colour fill while
+King's Landing and every barony have already gone. AGOT's skybox mesh shares
+`AGOT_building_layer`; it is moved to a layer of its own with AGOT's step 16, or the sea
+beyond the map edge would lose its sky on step 10. `fade_out` is one number per layer in
+`game_object_layers.txt` if you want any of them back longer.
+
+Not covered: 3D landmarks that other mods add as *building assets* (COW-AGOT's Maidenpool,
+for one) are drawn by the holding system, not by a map object layer, and this patch has no
+say over when they unload.
 
 ### Ultrawide extra (opt-in)
 

@@ -6,7 +6,7 @@ SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 AGOT="$HOME/.local/share/Steam/steamapps/workshop/content/1158310/2962333032"
 GAME="$HOME/.local/share/Steam/steamapps/common/Crusader Kings III/game"
 
-for f in game_object_layers.txt effect_layers.txt; do
+for f in game_object_layers.txt effect_layers.txt skyx_skybox.txt; do
 	base="$AGOT/gfx/map/map_object_data/$f"
 	[ -f "$base" ] || base="$GAME/gfx/map/map_object_data/$f"
 	echo "=== $f  (base: $base)"
