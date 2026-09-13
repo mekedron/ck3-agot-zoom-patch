@@ -1,5 +1,7 @@
 [h1]AGOT Patch for Smooth Zoom Transitions[/h1]
 
+[b]Guide:[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3800254441]CK3 on a potato PC: a locked 60 FPS, and the map still looks sharp[/url] — the settings and mods this belongs to.
+
 Makes [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3800395737]Smooth Zoom Transitions[/url] work on the map of [b]A Game of Thrones[/b]. Without it the base mod, loaded below AGOT, makes every holding model on the AGOT map vanish on zoom step 8 — long before the realm colours start filling the map — and leaves AGOT's roads, special buildings and animals on layers that its table does not declare. It also stops AGOT drawing every holding model until step 16, far into the painted political map.
 
 [h2]Why AGOT needs a patch[/h2]

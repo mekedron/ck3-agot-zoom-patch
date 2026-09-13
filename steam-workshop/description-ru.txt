@@ -1,5 +1,7 @@
 [h1]AGOT Patch for Smooth Zoom Transitions[/h1]
 
+[b]Гайд:[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3800254441]CK3 on a potato PC: a locked 60 FPS, and the map still looks sharp[/url] — настройки и моды, к которым это относится.
+
 С этим патчем [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3800395737]Smooth Zoom Transitions[/url] работает на карте [b]A Game of Thrones[/b]. Без него базовый мод, стоящий ниже AGOT, убирает с карты AGOT все модели владений на 8-м шаге зума — задолго до того, как карту начинает заливать цвет королевств, — а дороги, особые здания и животных AGOT оставляет на слоях, которых его таблица не объявляет. Заодно патч не даёт AGOT рисовать все модели владений до 16-го шага, глубоко в закрашенной политической карте.
 
 [h2]Почему AGOT нужен патч[/h2]
