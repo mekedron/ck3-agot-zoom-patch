@@ -33,7 +33,7 @@ def main():
     f_tag = fit(d, "FOR A GAME OF THRONES", 84, S - 52 - 44)
     tag_h = f_tag.size + 22 * 2 - 10
     label(d, S - 2 * tag_h - 44, "FOR A GAME OF THRONES", f_tag)
-    label(d, S - tag_h - 22, "TOWNS GO WITH THE COLOURS", f_tag)
+    label(d, S - tag_h - 22, "TOWNS GO AS COLOURS COME", f_tag)
     finish(canvas, OUT)
 
 if __name__ == "__main__":
