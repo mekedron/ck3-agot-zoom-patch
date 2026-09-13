@@ -10,7 +10,11 @@
 #
 # This table is AGOT's, with the same idea applied to AGOT's numbers: what
 # AGOT unloads together with the two low tree layers on step 9 moves down to
-# 7 and 8, armies move up to 10, and everything AGOT keeps until 16 stays.
+# 7 and 8, armies move up to 10. The holding models (building_layer, every
+# castle, city and temple on the map) leave on step 10, where the realm colour
+# overlay starts filling: AGOT's 16 keeps thousands of meshes alive over an
+# area that has long turned into a painted political map, and it costs frame
+# rate exactly there. The few special buildings and the roads stay on 16.
 #
 #   layer                 AGOT  here   camera height (AGOT ZOOM_STEPS)
 #   activities_layer         9     7   210
@@ -18,7 +22,7 @@
 #   AGOT_building_layer     16    16   793
 #   AGOT_low_roads          16    16
 #   AGOT_roads              16    16
-#   building_layer          16    16
+#   building_layer          16    10   355
 #   unit_layer               9    10   355
 
 layer={
@@ -64,7 +68,7 @@ layer={
 layer={
 	name="building_layer"
 	fade_in=0
-	fade_out=16
+	fade_out=10
 	category=""
 	masks=""
 	visibility_tags=""

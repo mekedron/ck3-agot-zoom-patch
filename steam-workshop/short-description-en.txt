@@ -1,1 +1,1 @@
-Makes Smooth Zoom Transitions work on the A Game of Thrones map: AGOT's own map object layers, retuned for its zoom steps. Holdings stay until step 16 as in AGOT. Load below AGOT.
+Makes Smooth Zoom Transitions work on the A Game of Thrones map: AGOT's own map object layers, retuned for its zoom steps. Holdings unload with the realm colours, not on step 16. Load below AGOT.

@@ -1,6 +1,6 @@
 AGOT Patch for Smooth Zoom Transitions
 
-Makes https://steamcommunity.com/sharedfiles/filedetails/?id=3800395737 work on the map of A Game of Thrones. Without it the base mod, loaded below AGOT, makes every holding model on the AGOT map vanish on zoom step 8 — long before the realm colours start filling the map — and leaves AGOT's roads, special buildings and animals on layers that its table does not declare.
+Makes https://steamcommunity.com/sharedfiles/filedetails/?id=3800395737 work on the map of A Game of Thrones. Without it the base mod, loaded below AGOT, makes every holding model on the AGOT map vanish on zoom step 8 — long before the realm colours start filling the map — and leaves AGOT's roads, special buildings and animals on layers that its table does not declare. It also stops AGOT drawing every holding model until step 16, far into the painted political map.
 
 WHY AGOT NEEDS A PATCH
 
@@ -15,9 +15,10 @@ So with AGOT above the base mod, the towns and villages disappear on step 8 from
 
 WHAT THE PATCH DOES
 
-AGOT's own tables, with the base mod's idea applied to AGOT's numbers: nothing that AGOT unloads together with the two low tree layers on step 9 stays there, and nothing AGOT keeps until step 16 is touched.
+AGOT's own tables, with the base mod's idea applied to AGOT's numbers: nothing that AGOT unloads together with the two low tree layers on step 9 stays there, and the holding models leave when the realm colours arrive.
 
-- activities unload on step 7 instead of 9, animals on 8, armies on 10; the four building and road layers stay on 16, exactly as AGOT has them
+- activities unload on step 7 instead of 9, animals on 8, armies on 10
+- the holding models (every castle, city and temple) unload on step 10, where the colour overlay starts filling, instead of AGOT's 16: at that height the map is a painted political map and the thousands of meshes still alive on it are what took a 4 GB laptop GPU from 60 to 17 FPS. The special buildings and the roads are few and stay on 16
 - coast foam moves to step 7 and the mountain effects to 8 (the base mod uses 6 and 7; AGOT's camera is lower at the same step, so the same heights are one step later)
 - the large map names come back on step 12, AGOT's value
 
