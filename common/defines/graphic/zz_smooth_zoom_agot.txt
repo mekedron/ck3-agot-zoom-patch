@@ -1,0 +1,17 @@
+﻿# AGOT Patch for Smooth Zoom Transitions - defines
+#
+# Defines files are read in file name order and a later file overrides the
+# keys of an earlier one, so this file sorts after every zz_smooth_zoom_*
+# file of the base mod and after AGOT's 00_graphics.txt, whatever the mod
+# order is.
+#
+# Smooth Zoom Transitions moves the small-to-large map name swap from
+# vanilla's step 9 to 11. AGOT already moved it, to 12, and tuned its name
+# scales for that, so AGOT's value is restored here. The rest of the base
+# mod's defines (colour overlay start 10, fort and raid icons 10, streaming
+# budget 50, flat map icons, border update interval, name placement search)
+# match AGOT's own values for those keys and stay as the base mod sets them.
+
+NMapName = {
+	LARGE_NAMES_ZOOM_STEP = 12				# AGOT 12, Smooth Zoom 11, vanilla 9
+}

@@ -1,0 +1,39 @@
+﻿# Overrides gfx/map/map_object_data/effect_layers.txt (AGOT does not ship
+# this file, so the vanilla table, or Smooth Zoom Transitions' copy of it,
+# would apply).
+#
+# Smooth Zoom Transitions puts coast foam on step 6 and the mountain effects
+# on step 7, which on vanilla's camera is 250 and 295 units up. AGOT's camera
+# is lower at the same step numbers (step 6 = 179, step 7 = 210), so the same
+# heights are one step later here. Both stay off step 9, where AGOT unloads
+# its two low tree layers.
+#
+#   layer                        AGOT/vanilla  Smooth Zoom  here   height
+#   coast_foam_layer                        9            6     7   210
+#   env_effect_layer                        8            8     8   250
+#   env_effect_mountains_layer              9            7     8   250
+
+layer={
+	name="coast_foam_layer"
+	fade_in=0
+	fade_out=7
+	category=""
+	masks="medium|high"
+	visibility_tags=""
+}
+layer={
+	name="env_effect_layer"
+	fade_in=0
+	fade_out=8
+	category=""
+	masks="high"
+	visibility_tags="realms"
+}
+layer={
+	name="env_effect_mountains_layer"
+	fade_in=0
+	fade_out=8
+	category=""
+	masks="high"
+	visibility_tags="realms"
+}

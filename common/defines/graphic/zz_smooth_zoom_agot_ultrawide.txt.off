@@ -1,0 +1,12 @@
+﻿# AGOT Patch for Smooth Zoom Transitions - ultrawide name radius (opt-in)
+#
+# Rename to zz_smooth_zoom_agot_ultrawide.txt to enable.
+#
+# The base mod's opt-in file cuts NAME_DRAW_DISTANCE from vanilla's 12000 to
+# 9000. AGOT's map is larger and AGOT sets 20000, so that file would cut the
+# radius by more than half here. This one applies the same three quarters to
+# AGOT's value, and sorts after the base mod's file, so it wins if both are on.
+
+NMapName = {
+	NAME_DRAW_DISTANCE = 15000.0			# AGOT 20000.0
+}

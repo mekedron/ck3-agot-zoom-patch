@@ -1,0 +1,79 @@
+﻿# Overrides A Game of Thrones' gfx/map/map_object_data/game_object_layers.txt
+# (AGOT 0.5.2.1), which itself replaces the vanilla file.
+#
+# Smooth Zoom Transitions ships the *vanilla* table with three layers, moved
+# off zoom step 9. Under AGOT that copy is wrong twice: AGOT keeps every
+# holding model up to step 16, and it declares four layers of its own
+# (special buildings, roads, animals) that the vanilla table does not know.
+# AGOT also uses its own camera heights, so "step 8" is 250 units up here
+# against 344 in vanilla.
+#
+# This table is AGOT's, with the same idea applied to AGOT's numbers: what
+# AGOT unloads together with the two low tree layers on step 9 moves down to
+# 7 and 8, armies move up to 10, and everything AGOT keeps until 16 stays.
+#
+#   layer                 AGOT  here   camera height (AGOT ZOOM_STEPS)
+#   activities_layer         9     7   210
+#   AGOT_animal_layer        9     8   250
+#   AGOT_building_layer     16    16   793
+#   AGOT_low_roads          16    16
+#   AGOT_roads              16    16
+#   building_layer          16    16
+#   unit_layer               9    10   355
+
+layer={
+	name="activities_layer"
+	fade_in=0
+	fade_out=7
+	category=""
+	masks=""
+	visibility_tags=""
+}
+layer={
+	name="AGOT_animal_layer"
+	fade_in=0
+	fade_out=8
+	category=""
+	masks=""
+	visibility_tags=""
+}
+layer={
+	name="AGOT_building_layer"
+	fade_in=0
+	fade_out=16
+	category=""
+	masks=""
+	visibility_tags=""
+}
+layer={
+	name="AGOT_low_roads"
+	fade_in=0
+	fade_out=16
+	category=""
+	masks=""
+	visibility_tags=""
+}
+layer={
+	name="AGOT_roads"
+	fade_in=0
+	fade_out=16
+	category=""
+	masks=""
+	visibility_tags=""
+}
+layer={
+	name="building_layer"
+	fade_in=0
+	fade_out=16
+	category=""
+	masks=""
+	visibility_tags=""
+}
+layer={
+	name="unit_layer"
+	fade_in=0
+	fade_out=10
+	category=""
+	masks=""
+	visibility_tags=""
+}
