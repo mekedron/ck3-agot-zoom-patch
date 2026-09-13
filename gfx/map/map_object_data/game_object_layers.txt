@@ -11,10 +11,10 @@
 # This table is AGOT's, with the same idea applied to AGOT's numbers: what
 # AGOT unloads together with the two low tree layers on step 9 moves down to
 # 7 and 8, armies move up to 10. The holding models (building_layer, every
-# castle, city and temple on the map) leave on step 10, where the realm colour
-# overlay starts filling: AGOT's 16 keeps thousands of meshes alive over an
-# area that has long turned into a painted political map, and it costs frame
-# rate exactly there. AGOT's own building layer (Braavos, Gulltown, Lannisport,
+# castle, city and temple on the map) leave on step 12, where the realm colour
+# overlay becomes visible (it starts on 10 but is nearly transparent for two
+# steps): AGOT's 16 keeps thousands of meshes alive over an area that has long
+# turned into a painted political map, and it costs frame rate exactly there. AGOT's own building layer (Braavos, Gulltown, Lannisport,
 # Tyrosh, Oldtown, White Harbor, Pyke, the Wall's castles) and its road and
 # bridge layers go on the same step, so no town outlives the colour fill.
 #
@@ -24,10 +24,10 @@
 #   layer                 AGOT  here   camera height (AGOT ZOOM_STEPS)
 #   activities_layer         9     7   210
 #   AGOT_animal_layer        9     8   250
-#   AGOT_building_layer     16    10   355
-#   AGOT_low_roads          16    10   355
-#   AGOT_roads              16    10   355
-#   building_layer          16    10   355
+#   AGOT_building_layer     16    12   468
+#   AGOT_low_roads          16    12   468
+#   AGOT_roads              16    12   468
+#   building_layer          16    12   468
 #   unit_layer               9    10   355
 #   AGOT_skybox_layer        -    16   793   (new, the skybox only)
 
@@ -50,7 +50,7 @@ layer={
 layer={
 	name="AGOT_building_layer"
 	fade_in=0
-	fade_out=10
+	fade_out=12
 	category=""
 	masks=""
 	visibility_tags=""
@@ -58,7 +58,7 @@ layer={
 layer={
 	name="AGOT_low_roads"
 	fade_in=0
-	fade_out=10
+	fade_out=12
 	category=""
 	masks=""
 	visibility_tags=""
@@ -66,7 +66,7 @@ layer={
 layer={
 	name="AGOT_roads"
 	fade_in=0
-	fade_out=10
+	fade_out=12
 	category=""
 	masks=""
 	visibility_tags=""
@@ -74,7 +74,7 @@ layer={
 layer={
 	name="building_layer"
 	fade_in=0
-	fade_out=10
+	fade_out=12
 	category=""
 	masks=""
 	visibility_tags=""

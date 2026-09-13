@@ -1,6 +1,6 @@
 ﻿# Overrides A Game of Thrones' gfx/map/map_object_data/skyx_skybox.txt (AGOT 0.5.2.1).
 # Identical to AGOT's except the layer: AGOT puts its skybox on AGOT_building_layer,
-# which this patch unloads on zoom step 10 together with the holdings. The skybox
+# which this patch unloads on zoom step 12 together with the holdings. The skybox
 # gets a layer of its own (declared in game_object_layers.txt) with AGOT's step 16.
 object={
 	name="Skybox"

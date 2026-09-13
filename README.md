@@ -8,7 +8,8 @@ total conversion. Without it the base mod, loaded below AGOT, makes every holdin
 model on the AGOT map vanish on zoom step 8 - long before the realm colours start
 filling the map - and leaves AGOT's roads, special buildings and animals on layers
 that its table does not declare. The patch also stops AGOT drawing every holding
-model until step 16, far into the painted political map.
+model until step 16, far into the painted political map: they go on step 12, as the
+colours become visible.
 
 <img src="thumbnail.png" alt="AGOT Patch for Smooth Zoom Transitions" width="360">
 
@@ -49,8 +50,8 @@ later.
 
 | file | what |
 | --- | --- |
-| `gfx/map/map_object_data/game_object_layers.txt` | AGOT's seven layers; `activities_layer` 9 → 7, `AGOT_animal_layer` 9 → 8, `unit_layer` 9 → 10, `building_layer`, `AGOT_building_layer`, `AGOT_roads`, `AGOT_low_roads` 16 → 10; plus a new `AGOT_skybox_layer` on 16 |
-| `gfx/map/map_object_data/skyx_skybox.txt` | AGOT's file with the skybox moved to `AGOT_skybox_layer`, so it keeps AGOT's step 16 while the building layer it used to share goes on 10 |
+| `gfx/map/map_object_data/game_object_layers.txt` | AGOT's seven layers; `activities_layer` 9 → 7, `AGOT_animal_layer` 9 → 8, `unit_layer` 9 → 10, `building_layer`, `AGOT_building_layer`, `AGOT_roads`, `AGOT_low_roads` 16 → 12; plus a new `AGOT_skybox_layer` on 16 |
+| `gfx/map/map_object_data/skyx_skybox.txt` | AGOT's file with the skybox moved to `AGOT_skybox_layer`, so it keeps AGOT's step 16 while the building layer it used to share goes on 12 |
 | `gfx/map/map_object_data/effect_layers.txt` | coast foam 9 → 7, mountain env effects 9 → 8 (the base mod uses 6 and 7; AGOT's camera is lower at the same step, so the same heights are one step later) |
 | `common/defines/graphic/zz_smooth_zoom_agot.txt` | `LARGE_NAMES_ZOOM_STEP` back to AGOT's 12 |
 | `common/defines/graphic/zz_smooth_zoom_agot_ultrawide.txt.off` | opt-in, see below |
@@ -70,24 +71,26 @@ On AGOT's camera, the zoom steps the patch uses:
 | step | 6 | 7 | 8 | 9 | 10 | 12 | 16 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | camera height | 179 | 210 | 250 | 300 | 355 | 468 | 793 |
-| unloads / switches | grass | activities, coast foam | animals, mountain and other env effects | `tree_low`, `tree_medium` | holdings, AGOT's cities, roads and bridges, armies, colour overlay starts, fort and raid icons, AGOT's fog of war fade | large map names | skybox, `tree_high` |
+| unloads / switches | grass | activities, coast foam | animals, mountain and other env effects | `tree_low`, `tree_medium` | armies, colour overlay starts (faint), fort and raid icons, AGOT's fog of war fade | holdings, AGOT's cities, roads and bridges, large map names | skybox, `tree_high` |
 
-### Why the holdings leave on step 10
+### Why the holdings leave on step 12
 
 AGOT keeps `building_layer` until step 16, 793 units up, when the realm colour overlay has
 been fully opaque since step 15 and the map reads as a painted political map. Every castle,
 city and temple on the screen is still a mesh instance at that height, over an area many
 times what vanilla ever draws holdings on, and that is where a 4 GB laptop GPU dropped from
-60 to 17 FPS on the AGOT map. Step 10 is where the overlay starts filling (the base mod
-moves it there from 9), so the models go as the colours come.
+60 to 17 FPS on the AGOT map. The overlay starts on step 10 (the base mod moves it there
+from 9) but is nearly transparent for two steps; step 12 is where the colours are visibly
+there, so that is where the models go. Counting wheel clicks from the closest view as 1,
+that is the 13th click.
 
 AGOT's hand placed cities are not holdings: Braavos, Gulltown, Lannisport, Tyrosh,
 Oldtown, White Harbor, Pentos, Pyke and the Wall's castles are map objects on AGOT's own
 `AGOT_building_layer`, and the bridges and Valyrian roads on `AGOT_roads` /
-`AGOT_low_roads`. Those go on step 10 as well, so no town outlives the colour fill while
+`AGOT_low_roads`. Those go on step 12 as well, so no town outlives the colour fill while
 King's Landing and every barony have already gone. AGOT's skybox mesh shares
 `AGOT_building_layer`; it is moved to a layer of its own with AGOT's step 16, or the sea
-beyond the map edge would lose its sky on step 10. `fade_out` is one number per layer in
+beyond the map edge would lose its sky on step 12. `fade_out` is one number per layer in
 `game_object_layers.txt` if you want any of them back longer.
 
 Not covered: 3D landmarks that other mods add as *building assets* (COW-AGOT's Maidenpool,

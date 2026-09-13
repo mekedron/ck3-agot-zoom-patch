@@ -18,7 +18,7 @@ WHAT THE PATCH DOES
 AGOT's own tables, with the base mod's idea applied to AGOT's numbers: nothing that AGOT unloads together with the two low tree layers on step 9 stays there, and the holding models leave when the realm colours arrive.
 
 - activities unload on step 7 instead of 9, animals on 8, armies on 10
-- the holding models (every castle, city and temple) unload on step 10, where the colour overlay starts filling, instead of AGOT's 16: at that height the map is a painted political map and the thousands of meshes still alive on it are what took a 4 GB laptop GPU from 60 to 17 FPS. AGOT's hand placed cities (Braavos, Gulltown, Lannisport, Tyrosh, Oldtown, White Harbor...) and its bridges and Valyrian roads are map objects on AGOT's own layers and go on the same step, so no town outlives the colour fill; the skybox that shared their layer keeps AGOT's step 16 on a layer of its own
+- the holding models (every castle, city and temple) unload on step 12, where the colour overlay becomes visible (it starts on 10 but is nearly transparent for two steps), instead of AGOT's 16: at that height the map is a painted political map and the thousands of meshes still alive on it are what took a 4 GB laptop GPU from 60 to 17 FPS. AGOT's hand placed cities (Braavos, Gulltown, Lannisport, Tyrosh, Oldtown, White Harbor...) and its bridges and Valyrian roads are map objects on AGOT's own layers and go on the same step, so no town outlives the colour fill; the skybox that shared their layer keeps AGOT's step 16 on a layer of its own
 - coast foam moves to step 7 and the mountain effects to 8 (the base mod uses 6 and 7; AGOT's camera is lower at the same step, so the same heights are one step later)
 - the large map names come back on step 12, AGOT's value
 
